@@ -1,4 +1,4 @@
-package com.israa.groupassignment;
+package com.israa.groupassignment.studentscontroller;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -12,6 +12,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.israa.groupassignment.R;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -136,7 +138,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void btnAddOnClick(View view) {
-        String restUrl = "http://10.0.2.2:84/rest/addstudents.php";
+        String restUrl = "http://192.168.0.112:80/rest/addstudents.php";
         if (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.INTERNET)
                 != PackageManager.PERMISSION_GRANTED) {

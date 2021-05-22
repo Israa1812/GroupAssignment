@@ -1,4 +1,4 @@
-package com.israa.groupassignment;
+package com.israa.groupassignment.studentscontroller;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -12,6 +12,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+
+import com.israa.groupassignment.R;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -31,7 +33,7 @@ public class Activity3 extends AppCompatActivity {
     public void btnSearchOnClick(View view) {
         EditText edtSname = findViewById(R.id.edtSname);
 
-        String url = "http://10.0.2.2:84/rest/infoS.php?Sname=" + edtSname.getText();
+        String url = "http://192.168.0.112:80/rest/infoS.php?Sname=" + edtSname.getText();
         if (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.INTERNET)
                 != PackageManager.PERMISSION_GRANTED) {
