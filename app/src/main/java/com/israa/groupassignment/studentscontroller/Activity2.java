@@ -15,7 +15,7 @@ import java.util.HashMap;
 
 public class Activity2 extends AppCompatActivity {
 
-    String restUrl = "http://192.168.0.112:80/rest/addstudents.php";
+    String restUrl = "http://127.0.0.1:80/rest/addstudents.php";
     String finalResult ;
     //todo:
     //  HttpParse httpParse = new HttpParse();

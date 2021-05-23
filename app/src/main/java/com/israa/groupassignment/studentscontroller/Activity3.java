@@ -33,7 +33,7 @@ public class Activity3 extends AppCompatActivity {
     public void btnSearchOnClick(View view) {
         EditText edtSname = findViewById(R.id.edtSname);
 
-        String url = "http://192.168.0.112:80/rest/infoS.php?Sname=" + edtSname.getText();
+        String url = "http://127.0.0.1:80/rest/infoS.php?Sname=" + edtSname.getText();
         if (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.INTERNET)
                 != PackageManager.PERMISSION_GRANTED) {
@@ -116,7 +116,12 @@ public class Activity3 extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String result) {
-
+//Toast.makeText(getBaseContext(), result, Toast.LENGTH_LONG).show();
+            //String[] student = result.split(",");
+            //String str = "";
+            //for(String s : student){
+            //    str+= s + "\n";
+            // }
             EditText edtData = findViewById(R.id.edtdata);
             edtData.setText(result);
         }

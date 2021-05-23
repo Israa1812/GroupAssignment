@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.israa.groupassignment.Activity;
 import com.israa.groupassignment.R;
 
 import java.io.BufferedReader;
@@ -120,6 +121,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+
+
     private class SendPostRequest extends AsyncTask<String, Void, String> {
         @Override
         protected String doInBackground(String... urls) {
@@ -138,7 +141,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void btnAddOnClick(View view) {
-        String restUrl = "http://192.168.0.112:80/rest/addstudents.php";
+        String restUrl = "http://127.0.0.1:80/rest/addstudents.php";
         if (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.INTERNET)
                 != PackageManager.PERMISSION_GRANTED) {
@@ -164,6 +167,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
 
     }
-
+    public void btnChooseOnClick(View view) {
+        Intent intent = new Intent(this, Activity.class);
+        startActivity(intent);
+    }
 
 }
