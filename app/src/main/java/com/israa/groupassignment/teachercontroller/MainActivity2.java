@@ -14,7 +14,7 @@ import com.israa.groupassignment.studentscontroller.Activity3;
 import java.util.HashMap;
 
 public class MainActivity2 extends AppCompatActivity {
-    String restUrl = "http://127.0.0.1:80/rest/addstudents.php";
+    String restUrl = "http://127.0.0.1:80/rest/updateTeachers.php";
     String finalResult ;
     //todo:
     //  HttpParse httpParse = new HttpParse();
