@@ -26,4 +26,14 @@ public class Activity extends AppCompatActivity {
         Intent intent = new Intent(this, MainActivity3.class);
         startActivity(intent);
     }
+
+    public void btnliststudentsOnClick(View view) {
+        Intent intent = new Intent(this, listStudents.class);
+        startActivity(intent);
+    }
+
+    public void btnlistteachersOnClick(View view) {
+        Intent intent = new Intent(this, listTeacher.class);
+        startActivity(intent);
+    }
 }

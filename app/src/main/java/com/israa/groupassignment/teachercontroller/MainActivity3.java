@@ -34,7 +34,7 @@ public class MainActivity3 extends AppCompatActivity {
     public void btnSearchOnClick(View view) {
         EditText edtTname = findViewById(R.id.edtTname);
 
-        String url = "http://127.0.0.1:80/rest/infoT.php?Tname=" + edtTname.getText();
+        String url = "http://10.0.2.2/rest/infoT.php?Tname=" + edtTname.getText();
         if (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.INTERNET)
                 != PackageManager.PERMISSION_GRANTED) {
@@ -134,7 +134,7 @@ public class MainActivity3 extends AppCompatActivity {
     }
 
     public void btnUpdataOnClick(View view) {
-        Intent intent = new Intent(this, MainActivity3.class);
+        Intent intent = new Intent(this, MainActivity2.class);
         startActivity(intent);
     }
 

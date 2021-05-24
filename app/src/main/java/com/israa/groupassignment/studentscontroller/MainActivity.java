@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -53,6 +54,8 @@ public class MainActivity extends AppCompatActivity {
         String email = edtemail.getText().toString();
         String familyinfo = edtfamilyinfo.getText().toString();
 
+
+
         String data = URLEncoder.encode("Rooms" , "UTF-8")
                 + "=" + URLEncoder.encode(Rooms ,"UTF-8");
 
@@ -68,6 +71,13 @@ public class MainActivity extends AppCompatActivity {
         data += "&" + URLEncoder.encode("familyinfo" ,"UTF-8")
                 + "=" +URLEncoder.encode(familyinfo,"UTF-8");
 
+        /*
+        if(!email.isEmpty() && Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+            Toast.makeText(this, "Correct", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "Incorrect", Toast.LENGTH_SHORT).show();
+        }
+*/
         String text = "";
         BufferedReader reader=null;
         //Send data
@@ -141,7 +151,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void btnAddOnClick(View view) {
-        String restUrl = "http://127.0.0.1:80/rest/addstudents.php";
+        String restUrl = "http://10.0.2.2/rest/addstudents.php";
         if (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.INTERNET)
                 != PackageManager.PERMISSION_GRANTED) {

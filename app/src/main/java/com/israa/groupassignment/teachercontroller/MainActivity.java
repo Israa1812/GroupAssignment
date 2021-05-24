@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -53,7 +54,13 @@ public class MainActivity extends AppCompatActivity {
         String salary = edtsalary.getText().toString();
         String email = edtemail.getText().toString();
         String educationalInfo = edteducationalInfo.getText().toString();
-
+/*
+        if(!email.isEmpty() && Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+            Toast.makeText(this, "Correct", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "Incorrect", Toast.LENGTH_SHORT).show();
+        }
+*/
         String data = URLEncoder.encode("material" , "UTF-8")
                 + "=" + URLEncoder.encode(material ,"UTF-8");
 
@@ -142,7 +149,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void btnAddOnClick(View view) {
-        String restUrl = "http://127.0.0.1:80/rest/addteachers.php";
+        String restUrl = "http://10.0.2.2/rest/addteachers.php";
         if (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.INTERNET)
                 != PackageManager.PERMISSION_GRANTED) {

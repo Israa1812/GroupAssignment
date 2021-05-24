@@ -1,12 +1,18 @@
 package com.israa.groupassignment.studentscontroller;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.israa.groupassignment.R;
 
@@ -15,7 +21,6 @@ import java.util.HashMap;
 
 public class Activity2 extends AppCompatActivity {
 
-    String restUrl = "http://127.0.0.1:80/rest/updateStudents.php";
     String finalResult ;
     //todo:
     //  HttpParse httpParse = new HttpParse();
@@ -44,6 +49,7 @@ public class Activity2 extends AppCompatActivity {
         edtfamilyinfo = getIntent().getStringExtra("edtfamilyinfo");
 
 
+
         mEdtRooms.setText(edtRooms);
         mEdtSname.setText(edtSname);
         mEdtrate.setText(edtrate);
@@ -57,7 +63,28 @@ public class Activity2 extends AppCompatActivity {
         GetDataFromEditText();
 
         // Sending Student Name, Phone Number, Class to method to update on server.
-        StudentRecordUpdate(edtRooms,edtSname,edtrate, edtemail, edtfamilyinfo);
+       // StudentRecordUpdate(edtRooms,edtSname,edtrate, edtemail, edtfamilyinfo);
+
+        String restUrl = "http://10.0.2.2/rest/updateStudents.php";
+        if (ContextCompat.checkSelfPermission(this,
+                Manifest.permission.INTERNET)
+                != PackageManager.PERMISSION_GRANTED) {
+
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.INTERNET},
+                    123);
+
+        } else{
+            Activity2.StudentRecordUpdateClass runner = new Activity2.StudentRecordUpdateClass();
+            runner.execute(restUrl);
+        }
+        /*
+        if(!edtemail.isEmpty() && Patterns.EMAIL_ADDRESS.matcher(edtemail).matches()){
+            Toast.makeText(this, "Correct", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "Incorrect", Toast.LENGTH_SHORT).show();
+        }*/
+
     }
 
     public void btnAddOnClick(View view) {
@@ -84,7 +111,7 @@ public class Activity2 extends AppCompatActivity {
 
 
     // Method to Update Student Record.
-    public void StudentRecordUpdate(final String edtRooms, final String edtSname, final String edtrate, final String edtemail, final String edtfamilyinfo){
+   // public void StudentRecordUpdate(final String edtRooms, final String edtSname, final String edtrate, final String edtemail, final String edtfamilyinfo){
 
         class StudentRecordUpdateClass extends AsyncTask<String,Void,String> {
 
@@ -121,6 +148,7 @@ public class Activity2 extends AppCompatActivity {
 
         StudentRecordUpdateClass studentRecordUpdateClass = new StudentRecordUpdateClass();
 
-        studentRecordUpdateClass.execute(edtRooms,edtSname,edtrate,edtemail, edtfamilyinfo);
+        //studentRecordUpdateClass.execute(edtRooms,edtSname,edtrate,edtemail, edtfamilyinfo);
+
     }
-}
+//}

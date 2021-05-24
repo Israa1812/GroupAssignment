@@ -5,8 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.israa.groupassignment.R;
 import com.israa.groupassignment.studentscontroller.Activity3;
@@ -14,7 +16,7 @@ import com.israa.groupassignment.studentscontroller.Activity3;
 import java.util.HashMap;
 
 public class MainActivity2 extends AppCompatActivity {
-    String restUrl = "http://127.0.0.1:80/rest/updateTeachers.php";
+    String restUrl = "http://10.0.2.2/rest/updateTeachers.php";
     String finalResult ;
     //todo:
     //  HttpParse httpParse = new HttpParse();
@@ -41,7 +43,13 @@ public class MainActivity2 extends AppCompatActivity {
         edtsalary = getIntent().getStringExtra("edtsalary");
         edtemail = getIntent().getStringExtra("edtemail");
         edteducationalInfo = getIntent().getStringExtra("edteducationalInfo");
-
+/*
+        if(!edtemail.isEmpty() && Patterns.EMAIL_ADDRESS.matcher(edtemail).matches()){
+            Toast.makeText(this, "Correct", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "Incorrect", Toast.LENGTH_SHORT).show();
+        }
+*/
 
         mEdtmaterial.setText(edtmaterial);
         mEdtTname.setText(edtTname);
